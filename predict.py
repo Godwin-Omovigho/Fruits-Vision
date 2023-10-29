@@ -1,7 +1,7 @@
 import streamlit as st
-# import tensorflow as tf
-# import matplotlib.pyplot as plt
-# import matplotlib.image as mpimg
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 import pathlib
 import numpy as np
 from PIL import Image
