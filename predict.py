@@ -37,6 +37,8 @@ def pred_and_plot(model, filename,class_names=class_names):
   Imports an image located at filename, makes a prediction with model and plots the
   image with the predicted class as the title"""
 
+  confidence_threshold=0.7
+
   #Import the target image and preprocess it
   img=load_and_pred_image(filename)
 
@@ -44,9 +46,20 @@ def pred_and_plot(model, filename,class_names=class_names):
   pred = model.predict(tf.expand_dims(img, axis=0))
 
   #Get the predicted class
-  pred_class=class_names[pred.argmax()]
+  pred_class = np.argmax(pred)
+  # pred_class=class_names[pred.argmax()]
 
-  return pred_class
+  confidence = pred[0][pred_class]
+
+  # Check if the confidence is above the threshold
+  if confidence >= confidence_threshold:
+    class_name = class_names[pred_class]
+    return class_name
+    
+  else:
+    return "Not trained with the dataset"
+
+  # return pred_class
 
 
 def show_predict_page():
