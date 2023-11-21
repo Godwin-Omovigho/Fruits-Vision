@@ -37,7 +37,7 @@ def pred_and_plot(model, filename,class_names=class_names):
   Imports an image located at filename, makes a prediction with model and plots the
   image with the predicted class as the title"""
 
-  confidence_threshold=0.8
+  confidence_threshold=0.5
 
   #Import the target image and preprocess it
   img=load_and_pred_image(filename)
